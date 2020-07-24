@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="keywords" content="文章生成器,营销号文章,营销号,oistream,zxp2019,生成器,文章"/>
+        <meta name="description" content="生成你的营销号文章！（Doge"/>
+        <title>营销号文章生成器 - Oistream‘s Blog</title>
+        <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+        <!--<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script> -->
+        <style>
+            #menu ul 
+            {
+                list-style-type:none;
+                margin:0px;
+                padding:0px;
+                overflow:hidden;
+                background-color:rgba(255,255,255,0);
+            }
+            #menu li 
+            {
+                background-color:rgba(255,255,255,.0);
+                float:left;
+            }
+            #menu li a 
+            {
+                display:block;
+                color:black;
+                text-align:center;
+                padding:14px 16px;
+                text-decoration:none;
+                border-radius:.25rem;
+            }
+            #menu li a:hover:not(.active) 
+            {
+                box-shadow: 1px 1px 5px rgba(136,136,136,.70);
+                background-color:rgba(33,133,208,.65);
+                color:white;
+            }
+            #menu li a.active 
+            {
+                box-shadow: 1px 1px 5px rgba(136,136,136,.70);
+                color:white;
+                background-color:rgba(33,133,208,.50);
+            }
+            #main
+            {
+                background-color:rgba(255,255,255,.50);
+                box-shadow: 1px 1px 5px rgba(136,136,136,.70);
+                border-radius:.25rem;
+                margin-top:20px;
+                margin-left:20%;
+                margin-right:20%;
+                padding:20px;
+            }
+            input
+            {
+                border-radius:.15rem;
+                border:1px solid #666666;
+                padding:5px;
+                font-size:17px;
+                margin:7.5px;
+            }
+            input:hover,input:active
+            {
+                box-shadow:1px 1px 5px rgba(136,136,136,.70);
+            }
+            button
+            {
+                border-radius:.15rem;
+                border:1px solid #666666;
+                background-color:rgb(33,133,208);
+                color:white;
+                padding:5px;
+                font-size:17px;
+                margin:7.5px;
+                box-shadow:1px 1px 5px rgba(136,136,136,.70);
+            }
+            button:active
+            {
+                background-color:white;
+            }
+            #line
+            {
+                display:flex;
+	            justify-content:center;
+            }
+            #textContainer
+            {
+                text-align:left;
+                margin-left:10px;
+            }
+            #faContainer
+            {
+                font-size: 70px;
+            }
+            #footer
+            {
+                text-align:center;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin:20px;
+            }
+            #footer a
+            {
+                color:rgb(33,133,208);
+                text-decoration:none;
+            }
+
+            /*textarea
+            {
+                border-radius:.15rem;
+                border:1px solid #666666;
+                color:black;
+                padding:5px;
+                font-size:17px;
+                margin:7.5px;
+                box-shadow:1px 1px 5px rgba(136,136,136,.70);
+                font-family:'Microsoft Yahei';
+            }*/
+        </style>
+        <script>
+            function show()
+            {
+                var n=document.getElementById("n").value;
+                var adj=document.getElementById("adj").value;
+                var to=document.getElementById("to").value;
+                var iam=document.getElementById("iam").value;
+                var txt="各位"+to+"大家好，欢迎来观看"+iam+"的文章。今天"+iam+"给大家讲一讲"+n+adj+"是怎么回事？相信大家都很熟悉"+n
+                +"，可是"+n+adj+"又是怎么回事呢？下面就让"+iam+"带大家了解一下吧。其实啊，"+n+adj+"就是"+adj+"的"+n+"。"+adj+"的"+n+"就相当于"+n+"的"+adj+"。大家可能会感到很惊讶，"+adj+"的"+n+"怎么会这样的"+adj+"？"
+                +"但事实就是这样，"+iam+"也感到非常惊讶。那么这就是关于"+n+"非常"+adj+"的事情了，大家有什么想法呢？欢迎在评论区告诉"+iam+"一起讨论哦。";
+                document.getElementById("te").innerHTML=txt;
+            }
+        </script>
+        <script>
+            function copyA()
+            {
+                var txt=document.getElementById("te").select();
+                document.execCommand("copy");
+                document.getElementById("ok").innerHTML='<i class="fa fa-check-square-o">&nbsp;&nbsp;文章已复制至剪贴板！'
+            }
+        </script>
+    </head>
+    <body style="background-image:url(./img/doge.jpg);background-size:cover;">
+        <!--<script src="https://zxp2019.github.io/script/browser.js"></script>--->
+        <div id="container">
+            <div id="menu" style="border-radius:.25rem;box-shadow: 1px 1px 5px rgba(136,136,136,.70);background-color:rgba(255,255,255,.50);">
+                <ul>
+                    <li><a href="#home">营销号文章生成器</a></li>
+                    <li><a href="https://zxp2019.github.io">My Blog</a></li>
+                    <li><a href="https://github.com/zxp2019/">My Github</a></li>
+                </ul>
+            </div>
+            <div id="main">
+                <div class="longBlog">
+                    <div id="line">
+                        <div id="faContainer">
+                            <i class="fa fa-info-circle"></i>
+                        </div>
+                        <div id="textContainer">
+                            <p><strong>本生成器仅供娱乐。</strong></p>
+                            <p>请勿将此生成器或其生成的文章用于正式用途。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="main" style="text-align:center;">
+                <div class="longBlog">
+                    <h1>生成你的营销号文章！</h1>
+                    <p>先输入关键字。然后，看见按钮了没，点它！</p>
+                    <input id="n" type="text" placeholder="要营销啥子嘞？"/>
+                    <input id="adj" type="text" placeholder="营销的东西啥样子嘞？"/>
+                    <input id="to" type="text" placeholder="营销对象是谁嘞？"/>
+                    <input id="iam" type="text" placeholder="您自称什么嘞？"/>
+                    <br/>
+                    <button type="button" onclick="show()">生成文章！</button>
+                </div>
+            </div>
+            <div id="main" style="text-align:center;">
+                <div class="longBlog">
+                    <h1>瞅啥呢？你的营销号文章在这儿呢！</h1>
+                    <p>点击下面的按钮复制文章，把这篇非常 Doge 的文章发给你的好友！</p>
+                    <button type="button" onclick="copyA()"><i class="fa fa-clone"></i>&nbsp;&nbsp;复制文章！</button>
+                    <br/>
+                    <span style="margin:10px;" id="ok"></span>
+                    <br/>
+                    <textarea id="te" rows="10" cols="40">点上面的生成按钮啊</textarea>
+                </div>
+            </div>
+            <div id="footer">
+                <small>Dogely Article Generator v1.1.0 | Designed by <a href="https://github.com/oistream/">oistream</a></small>
+            </div>
+        </div>
+    </body>
+</html>
