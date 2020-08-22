@@ -68,17 +68,17 @@
             button
             {
                 border-radius:.15rem;
-                border:1px solid #666666;
+                border:none;
                 background-color:rgb(33,133,208);
                 color:white;
-                padding:5px;
-                font-size:17px;
+                font-size:15px;
+                padding:10px;
                 margin:7.5px;
                 box-shadow:1px 1px 5px rgba(136,136,136,.70);
             }
             button:active
             {
-                background-color:white;
+                background-color:rgb(11,111,187);
             }
             #line
             {
@@ -105,8 +105,11 @@
                 color:rgb(33,133,208);
                 text-decoration:none;
             }
-
-            /*textarea
+            i
+            {
+                margin-right:5px;
+            }
+            textarea
             {
                 border-radius:.15rem;
                 border:1px solid #666666;
@@ -116,9 +119,45 @@
                 margin:7.5px;
                 box-shadow:1px 1px 5px rgba(136,136,136,.70);
                 font-family:'Microsoft Yahei';
-            }*/
+            }
+            textarea:hover
+            {
+                box-shadow:.5px .5px 5px rgba(33,133,208,.70);
+            }
+            #reminder
+            {
+                text-align:center;
+                position:fixed;
+                right:30%;
+                left:30%;
+                top:200px;
+                box-shadow:1px 1px 5px rgba(136,136,136,.70);
+                border-radius:.25rem;
+                background-color:rgb(255,255,255);
+                padding:20px;
+            }
+            #gitHub
+            {
+                text-align:center;
+                position:fixed;
+                left:0px;
+                bottom:0px;
+                margin:30px;
+                box-shadow:1px 10px 5px rgba(136,136,136,.70);
+                border-radius:1.5rem;
+                background-color:rgb(255,255,255);
+                padding:0px;
+            }
         </style>
         <script>
+            function showReminder()
+            {
+                document.getElementById("reminder").style=""
+            }
+            function closeReminder()
+            {
+                document.getElementById("reminder").style="display:none;"
+            }
             function show()
             {
                 var n=document.getElementById("n").value;
@@ -129,19 +168,50 @@
                 +"，可是"+n+adj+"又是怎么回事呢？下面就让"+iam+"带大家了解一下吧。其实啊，"+n+adj+"就是"+adj+"的"+n+"。"+adj+"的"+n+"就相当于"+n+"的"+adj+"。大家可能会感到很惊讶，"+adj+"的"+n+"怎么会这样的"+adj+"？"
                 +"但事实就是这样，"+iam+"也感到非常惊讶。那么这就是关于"+n+"非常"+adj+"的事情了，大家有什么想法呢？欢迎在评论区告诉"+iam+"一起讨论哦。";
                 document.getElementById("te").innerHTML=txt;
+                document.getElementById("ok").innerHTML="文案已成功生成！"
+                showReminder();
             }
-        </script>
-        <script>
             function copyA()
             {
                 var txt=document.getElementById("te").select();
                 document.execCommand("copy");
-                document.getElementById("ok").innerHTML='<i class="fa fa-check-square-o">&nbsp;&nbsp;文章已复制至剪贴板！'
+                document.getElementById("ok").innerHTML="文案已成功复制到剪贴板，快分享给好友吧！"
+                showReminder();
+            }
+            function clearA()
+            {
+                document.getElementById("te").innerText="点上面的生成按钮啊"
+                document.getElementById("ok").innerHTML="已成功清空文本！"
+                showReminder();
+            }
+            function showSamp()
+            {
+                document.getElementById("n").value="小编"
+                document.getElementById("adj").value="语文 100 分"
+                document.getElementById("to").value="同学"
+                document.getElementById("iam").value="小编"
+                document.getElementById("ok").innerHTML="样例已成功填入输入框，现在点击生成按钮吧！"
+                showReminder();
             }
         </script>
     </head>
     <body style="background-image:url(./img/doge.jpg);background-size:cover;">
         <!--<script src="https://zxp2019.github.io/script/browser.js"></script>--->
+        <!--<div id="notice">
+
+        </div>-->
+        <div id="reminder" style="display:none;">
+            <div id="faContainer" style="color:rgb(82,196,26);font-size:100px;">
+                <i class="fa fa-check"></i>
+            </div>
+            <h1 id="ok"></h1>
+            <button type="button" onclick="closeReminder()"><i class="fa fa-check-square-o"></i>知道了</button>
+        </div>
+        <div id="gitHub">
+            <div id="faContainer" style="font-size:40px;">
+                <a href="https://github.com/zxp2019/Dogely-Article-Generator" style="color:black;"><i class="fa fa-github" style="margin-left:5px;"></i></a>
+            </div>
+        </div>
         <div id="container">
             <div id="menu" style="border-radius:.25rem;box-shadow: 1px 1px 5px rgba(136,136,136,.70);background-color:rgba(255,255,255,.50);">
                 <ul>
@@ -166,28 +236,28 @@
             <div id="main" style="text-align:center;">
                 <div class="longBlog">
                     <h1>生成你的营销号文章！</h1>
-                    <p>先输入关键字。然后，看见按钮了没，点它！</p>
+                    <p>先输入关键字。然后，看见下面的按钮了没，点它！</p>
+                    <p>...或者，看看样例。</p>
                     <input id="n" type="text" placeholder="要营销啥子嘞？"/>
                     <input id="adj" type="text" placeholder="营销的东西啥样子嘞？"/>
                     <input id="to" type="text" placeholder="营销对象是谁嘞？"/>
                     <input id="iam" type="text" placeholder="您自称什么嘞？"/>
                     <br/>
-                    <button type="button" onclick="show()">生成文章！</button>
+                    <button type="button" onclick="show()"><i class="fa fa-plus"></i>生成文章</button><button type="button" onclick="showSamp()"><i class="fa fa-eye"></i>查看样例</button>
+                    <button type="button" onclick="showReminder()" style="display:none;"><i class="fa fa-plus"></i>显示提示</button>
                 </div>
             </div>
             <div id="main" style="text-align:center;">
                 <div class="longBlog">
                     <h1>瞅啥呢？你的营销号文章在这儿呢！</h1>
                     <p>点击下面的按钮复制文章，把这篇非常 Doge 的文章发给你的好友！</p>
-                    <button type="button" onclick="copyA()"><i class="fa fa-clone"></i>&nbsp;&nbsp;复制文章！</button>
+                    <button type="button" onclick="copyA()"><i class="fa fa-clone"></i>复制文章</button><button type="button" onclick="clearA()"><i class="fa fa-remove"></i>清空文章</button>
                     <br/>
-                    <span style="margin:10px;" id="ok"></span>
-                    <br/>
-                    <textarea id="te" rows="10" cols="40">点上面的生成按钮啊</textarea>
+                    <textarea id="te" rows="10" cols="40" readonly>点上面的生成按钮啊</textarea>
                 </div>
             </div>
             <div id="footer">
-                <small>Dogely Article Generator v1.1.0 | Designed by <a href="https://github.com/oistream/">oistream</a></small>
+                <small>Dogely Article Generator v1.2.0 | Designed by <a href="https://github.com/oistream/">oistream</a> | <a href="https://github.com/zxp2019/Dogely-Article-Generator">Github Repo</a></small>
             </div>
         </div>
     </body>
